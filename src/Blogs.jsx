@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Blog from "./blog"
 
-function Blogs() {
+function Blogs({ handleAddToPlaylist }) {
   let [blogs, setBlogs] = useState([]);
   
   useEffect(() => {
@@ -25,12 +25,13 @@ function Blogs() {
   },[])
 
   return (
-    <div className="grid grid-cols-3 gap-5 place-content-between w-full mt-5">
+    <div className="grid grid-cols-3 gap-5 place-content-between w-full my-5">
     {
       blogs.map((blog) => 
       <Blog 
         key={blog.category_id}
         blog={blog}
+        handleAddToPlaylist={handleAddToPlaylist}
       />)
     }
       

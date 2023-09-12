@@ -1,20 +1,29 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Blogs from "./Blogs"
-import Bookmarks from "./Bookmarks"
+import Playlist from "./Playlist"
 import Header from "./Header"
 
+
 function App() {
+  const [playlist, setPlaylist] = useState([])
+  const handleAddToPlaylist = (blog) =>{
+    let newPLaylist = [...playlist, blog];
+    setPlaylist(newPLaylist);
+  }
   return (
     <div className="w-5/6 mx-auto">
       <Header />
-      <div className="flex justify-between gap-5">
-        <Blogs 
-          className="w-2/3"
+      <div className="grid grid-cols-[2fr,1fr] gap-2 place-items-start">
+        <Blogs
+          className="col-span-2"
+          handleAddToPlaylist={handleAddToPlaylist}
         />
-        <Bookmarks 
-          className="w-1/3"
+        <Playlist 
+          className="" 
+          playlist={playlist} 
         />
       </div>
+
     </div>
   )
 }
