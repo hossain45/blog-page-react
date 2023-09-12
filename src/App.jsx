@@ -1,13 +1,21 @@
-import './App.css'
+import { useState, useEffect } from "react"
+import Blogs from "./Blogs"
+import Bookmarks from "./Bookmarks"
+import Header from "./Header"
 
 function App() {
-
   return (
-    <>
-      <h1 className='text-5xl bg-slate-400'>
-        react with tailwindcss
-      </h1>
-    </>
+    <div className="w-5/6 mx-auto">
+      <Header />
+      <div className="flex justify-between gap-5">
+        <Blogs 
+          className="w-2/3"
+        />
+        <Bookmarks 
+          className="w-1/3"
+        />
+      </div>
+    </div>
   )
 }
 
